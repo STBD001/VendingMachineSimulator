@@ -1,38 +1,31 @@
+import tkinter as tk
 from Products import Display_products, Add_product, Change_price
-from Money import Account_Balance, Deposit_Money, Withdraw_Money, Buy_Item
+from Money import Deposit_Money, Withdraw_Money, Buy_Item, Account_Balance
+
 def main():
+    root = tk.Tk()
+    root.title("Vending Machine Simulator")
+    root.geometry("320x205")
 
-    while True:
-        print("1. Product List")
-        print("2. Add a product")
-        print("3. Change price")
-        print("4. Account balance")
-        print("5. Deposit money")
-        print("6. Withdraw money")
-        print("7. Buy item")
-        print("8. Exit")
-        choice = input("Choose your option: ")
+    btn_product_list = tk.Button(root, text="Product List", command=Display_products)
+    btn_add_product = tk.Button(root, text="Add a product", command=Add_product)
+    btn_change_price = tk.Button(root, text="Change price", command=Change_price)
+    btn_account_balance = tk.Button(root, text="Account balance", command=Account_Balance)
+    btn_deposit_money = tk.Button(root, text="Deposit money", command=Deposit_Money)
+    btn_withdraw_money = tk.Button(root, text="Withdraw money", command=Withdraw_Money)
+    btn_buy_item = tk.Button(root, text="Buy item", command=Buy_Item)
+    btn_exit = tk.Button(root, text="Exit", command=root.quit)
 
-        if choice == '1':
-            print("Product display")
-            Display_products()
-        if choice == '2':
-            print("Adding products: ")
-            Add_product()
-        if choice == '3':
-            print("Change in product prices")
-            Change_price()
-        if choice == '4':
-            Account_Balance()
-        if choice =='5':
-            Deposit_Money()
-        if choice =='6':
-            Withdraw_Money()
-        if choice == '7':
-            Buy_Item()
-        if choice == '8':
-            print("Exiting the program.")
-            break
+    btn_product_list.pack(fill='x')
+    btn_add_product.pack(fill='x')
+    btn_change_price.pack(fill='x')
+    btn_account_balance.pack(fill='x')
+    btn_deposit_money.pack(fill='x')
+    btn_withdraw_money.pack(fill='x')
+    btn_buy_item.pack(fill='x')
+    btn_exit.pack(fill='x')
+
+    root.mainloop()
 
 if __name__ == "__main__":
     main()
